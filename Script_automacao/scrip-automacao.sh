@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PURPLE=echo
+
 VERSAO=11
 	
 echo  "Verificando aqui se você possui o Java instalado..."
@@ -15,14 +15,15 @@ if [ $? -eq 0 ]
 	then
 		echo""
 		sleep 2
-		echo "Olá você já tem o java instalado!!, configure para versão 11 do Java"
+		echo "Olá você já tem o java instalado!!"
+	  	
 			
-			sudo update-alternatives --config java
+		
 
 	else
 		echo "Opa! Não identifiquei nenhuma versão do Java instalado, irei resolver isso agora!"
 		sleep 1
-	fi
+	
 		echo "Confirme para mim se realmente deseja instalar o Java (S/N)?"
 	read inst
 	if [ \"$inst\" == \"s\" ]
@@ -52,7 +53,7 @@ if [ $? -eq 0 ]
 			echo "Você optou por não instalar o Java por enquanto, até a próxima então!"
 			exit 1
 	fi
-
+fi
 
 
 echo "Fazendo requisição do nosso github, isso pode demorar um pouco"
@@ -63,9 +64,11 @@ echo "Fazendo requisição do nosso github, isso pode demorar um pouco"
 				git clone https://github.com/Luis-Silva80/Arquivos.git
 
 				cd Arquivos
-
+				chmod +x api-captura-get-1.0-SNAPSHOT.jar
 				chmod +x api-captura-get-1.0-SNAPSHOT-jar-with-dependencies.jar
-
+				sleep 2
+				echo " Abrindo aplicação"
+				sleep 2
 				java -jar api-captura-get-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 
